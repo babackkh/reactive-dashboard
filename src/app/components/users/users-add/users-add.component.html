@@ -1,0 +1,83 @@
+<div>
+  <mat-card>
+    <form class="add-user" [formGroup]="addUserForm" (submit)="onSaveData()">
+      <h3 mat-dialog-title>Add New User :</h3>
+      <mat-form-field appearance="outline">
+        <mat-label>First Name</mat-label>
+        <input type="text" matInput formControlName="firstname" />
+        <mat-error>
+          <span *ngIf="formControl.firstname.errors?.required">{{
+            errorMessages.required
+          }}</span>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Last Name</mat-label>
+        <input type="text" matInput formControlName="lastname" />
+        <mat-error>
+          <span *ngIf="formControl.lastname.errors?.required">{{
+            errorMessages.required
+          }}</span>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input type="text" matInput formControlName="email" />
+        <mat-error>
+          <span *ngIf="formControl.email.errors?.required">{{
+            errorMessages.required
+          }}</span>
+          <span *ngIf="!formControl.email.errors?.required">{{
+            errorMessages.invalidEmail
+          }}</span>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Phone Number</mat-label>
+        <span matPrefix>030 &nbsp;</span>
+        <input
+          type="tel"
+          matInput
+          placeholder="1234567"
+          formControlName="phone"
+          appNumeric
+        />
+        <mat-error>
+          <span *ngIf="formControl.phone.errors?.required">{{
+            errorMessages.required
+          }}</span>
+          <span *ngIf="!formControl.phone.errors?.required">{{
+            errorMessages.invalidPhone
+          }}</span>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>User Role</mat-label>
+        <mat-select formControlName="role">
+          <mat-option *ngFor="let role of userRoles" [value]="role">
+            {{ role }}
+          </mat-option>
+        </mat-select>
+        <mat-error>
+          <span *ngIf="formControl.role.errors?.required">{{
+            errorMessages.required
+          }}</span>
+        </mat-error>
+      </mat-form-field>
+      <!-- Submit Button -->
+      <mat-toolbar class="action-box">
+        <div class="spacer"></div>
+        <button
+          mat-flat-button
+          type="submit"
+          color="primary"
+          [mat-dialog-close]="data"
+          [disabled]="addUserForm.invalid"
+        >
+          Add New User
+        </button>
+        <button mat-button type="button" (click)="onNoClick()">Cancel</button>
+      </mat-toolbar>
+    </form>
+  </mat-card>
+</div>

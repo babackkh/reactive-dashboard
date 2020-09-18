@@ -1,0 +1,16 @@
+<div class="grid-container">
+  <h1 class="mat-h1">Users</h1>
+  <mat-grid-list cols="3" rowHeight="500px">
+    <mat-grid-tile [colspan]="3" [rowspan]="1">
+      <app-users-table [usersDataSource]="usersData"></app-users-table>
+    </mat-grid-tile>
+  </mat-grid-list>
+  <mat-toolbar class="add-user-btn">
+    <div class="spacer"></div>
+    <a mat-ripple style="cursor: pointer" (click)="addNewUser()">
+      <div class="add-user-btn">
+        <mat-icon>add</mat-icon>
+      </div>
+    </a>
+  </mat-toolbar>
+</div>

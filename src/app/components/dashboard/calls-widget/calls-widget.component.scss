@@ -1,0 +1,22 @@
+.widget-card {
+  box-shadow: none !important;
+  width: 60%;
+  margin: auto;
+  height: 66px;
+}
+.idle {
+  background-color: grey;
+  color: black;
+}
+.free {
+  background-color: rgb(146, 199, 146);
+  color: green;
+}
+.busy {
+  background-color: rgb(243, 212, 155);
+  color: orange;
+}
+.stumped {
+  background-color: rgb(235, 172, 172);
+  color: red;
+}

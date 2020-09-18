@@ -1,0 +1,10 @@
+mat-card {
+  box-shadow: 0 !important;
+  .add-user {
+    display: flex;
+    flex-direction: column;
+  }
+  mat-toolbar {
+    background-color: transparent !important;
+  }
+}

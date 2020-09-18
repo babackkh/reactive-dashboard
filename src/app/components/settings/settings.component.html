@@ -1,0 +1,16 @@
+<div class="grid-container">
+  <h1 class="mat-h1">Settings</h1>
+  <form [formGroup]="settingsForm" *ngIf="settings">
+    <mat-card class="settings-container">
+      <mat-checkbox formControlName="showAdminsOnly">{{
+        settings.showAdminsOnly.name
+      }}</mat-checkbox>
+      <mat-checkbox formControlName="showChart">{{
+        settings.showChart.name
+      }}</mat-checkbox>
+      <mat-checkbox formControlName="showDataWidget">{{
+        settings.showDataWidget.name
+      }}</mat-checkbox>
+    </mat-card>
+  </form>
+</div>

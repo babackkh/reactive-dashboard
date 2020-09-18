@@ -1,0 +1,28 @@
+.sidenav-container {
+  height: 100%;
+  .sidenav {
+    width: 200px;
+    .mat-toolbar {
+      background: inherit;
+    }
+  }
+}
+
+.mat-toolbar.top-header {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  height: 80px;
+  background-color: transparent;
+  .nav-items {
+    height: 55px;
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+::ng-deep .mat-tab-nav-bar {
+  border-bottom: 0 !important;
+}

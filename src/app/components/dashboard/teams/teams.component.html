@@ -1,0 +1,29 @@
+<!--Grid Containers-->
+<mat-grid-list cols="3" rowHeight="550px">
+  <mat-grid-tile
+    [colspan]="(cards | async)[0].cols"
+    [rowspan]="(cards | async)[0].rows"
+  >
+    <mat-card class="dashboard-card">
+      <mat-card-header>
+        <mat-card-title> Team Activity Data : </mat-card-title>
+      </mat-card-header>
+      <mat-card-content class="dashboard-card-content">
+        <app-calls-chart *ngIf="showCharts"></app-calls-chart>
+      </mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+  <mat-grid-tile
+    [colspan]="(cards | async)[1].cols"
+    [rowspan]="(cards | async)[1].rows"
+  >
+    <mat-card class="dashboard-card">
+      <mat-card-header>
+        <mat-card-title> Current Active Calls : </mat-card-title>
+      </mat-card-header>
+      <mat-card-content class="dashboard-card-content widget">
+        <app-calls-widget *ngIf="showWidget"></app-calls-widget>
+      </mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>

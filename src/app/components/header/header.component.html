@@ -1,0 +1,73 @@
+<mat-sidenav-container class="sidenav-container">
+  <!--prettier-ignore-->
+  <mat-sidenav
+    #drawer
+    class="sidenav"
+    fixedInViewport
+    [ngClass]="{ 'hidden': !(isHandset$ | async) }"
+    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'"
+    [opened]="(isHandset$ | async) === false"
+  >
+    <mat-toolbar>Menu</mat-toolbar>
+    <mat-nav-list >
+      <a mat-list-item routerLink="/dashboard" (click)="drawer.close()"
+        >Dashboard</a
+      >
+      <a mat-list-item routerLink="/users" (click)="drawer.close()">Users</a>
+      <a mat-list-item routerLink="/settings" (click)="drawer.close()"
+        >Settings</a
+      >
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar class="top-header">
+      <img src="assets/Logo2-2.png" width="5%" height="auto" alt="logo" />
+      <div class="spacer"></div>
+      <nav
+        mat-tab-nav-bar
+        class="nav-items"
+        color="primary"
+        *ngIf="!(isHandset$ | async)"
+      >
+        <a
+          mat-tab-link
+          disableRipple
+          routerLink="/dashboard"
+          routerLinkActive
+          #rla3="routerLinkActive"
+          [active]="rla3.isActive"
+          >Dashboard</a
+        >
+        <a
+          mat-tab-link
+          disableRipple
+          routerLink="/users"
+          routerLinkActive
+          #rla4="routerLinkActive"
+          [active]="rla4.isActive"
+          >Users</a
+        >
+        <a
+          mat-tab-link
+          disableRipple
+          routerLink="/settings"
+          routerLinkActive
+          #rla5="routerLinkActive"
+          [active]="rla5.isActive"
+          >Settings</a
+        >
+      </nav>
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async"
+      >
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+    </mat-toolbar>
+    <ng-content></ng-content>
+  </mat-sidenav-content>
+</mat-sidenav-container>

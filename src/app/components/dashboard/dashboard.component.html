@@ -1,0 +1,18 @@
+<div class="grid-container">
+  <h1 class="mat-h1">Call Activity Dashboard</h1>
+  <!--Team Select Drop Down-->
+  <mat-card class="team-select" *ngIf="teams">
+    <mat-form-field appearance="outline">
+      <mat-label>Select a Team</mat-label>
+      <mat-select
+        [(value)]="teamId"
+        (selectionChange)="onTeamSelect($event.value)"
+      >
+        <mat-option *ngFor="let team of teams" [value]="team.id">
+          {{ team.name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </mat-card>
+  <router-outlet></router-outlet>
+</div>
